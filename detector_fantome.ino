@@ -37,7 +37,7 @@ void loop() {
 
   value = analogRead(aerialPin);  // citire a buzzer-ului
   value = constrain(value, 1, senseLimit);  // transformarea oricarei citiri mai mari decat senseLimit in valoarea senseLimit
-  value = map(value, 1, senseLimit, 1, 1023);  // remaparea valorii restrictionate in intervalul 1-1023
+  value = map(value, 1, senseLimit, 1, 7);  // remaparea valorii restrictionate in intervalul 1-1023
 
   total -= readings[index]; // scaderea ultimei citiri
   readings[index] = value; // citirea de la senzor
@@ -50,7 +50,7 @@ void loop() {
   average = total / NUMBERREADINGS; // calcularea mediei
   noTone(buzzer);
   Serial.println(average);
-  if (average > 50){ 
+  if (average > 0){ 
     digitalWrite(led1, HIGH);
     tone(buzzer, 2000);
   }
@@ -58,7 +58,7 @@ void loop() {
     digitalWrite(led1, LOW);    
   }
 
-  if (average > 150){
+  if (average > 1){
     digitalWrite(led2, HIGH);
     tone(buzzer, 2500);
   }
@@ -66,7 +66,7 @@ void loop() {
     digitalWrite(led2, LOW);
   }
 
-  if (average > 250){
+  if (average > 2){
     digitalWrite(led3, HIGH);
     tone(buzzer, 3000);
   }
@@ -75,7 +75,7 @@ void loop() {
   }
 
 
-  if (average > 350){
+  if (average > 3){
     digitalWrite(led4, HIGH);
     tone(buzzer, 3500);
   }
@@ -83,7 +83,7 @@ void loop() {
     digitalWrite(led4, LOW);
   }
 
-  if (average > 450){
+  if (average > 4){
     digitalWrite(led5, HIGH);
     tone(buzzer, 4000);
   }
@@ -91,7 +91,7 @@ void loop() {
     digitalWrite(led5, LOW);
   }
 
-  if (average > 550){
+  if (average > 5){
     digitalWrite(led6, HIGH);
     tone(buzzer, 4500);
   }
@@ -99,7 +99,7 @@ void loop() {
     digitalWrite(led6, LOW);
   }
 
-  if (average > 650){
+  if (average > 6){
     digitalWrite(led7, HIGH);
     tone(buzzer, 5000);
   }
