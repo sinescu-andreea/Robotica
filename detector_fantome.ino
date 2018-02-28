@@ -37,7 +37,7 @@ void loop() {
 
   value = analogRead(aerialPin);  // citire a buzzer-ului
   value = constrain(value, 1, senseLimit);  // transformarea oricarei citiri mai mari decat senseLimit in valoarea senseLimit
-  value = map(value, 1, senseLimit, 1, 7);  // remaparea valorii restrictionate in intervalul 1-1023
+  value = map(value, 1, senseLimit, 1, 7);  // remaparea valorii restrictionate in intervalul 1-7
 
   total -= readings[index]; // scaderea ultimei citiri
   readings[index] = value; // citirea de la senzor
